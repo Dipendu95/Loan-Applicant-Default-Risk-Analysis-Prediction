@@ -132,6 +132,10 @@ New-applicant scoring totals, review-status distribution, priority reviews by ci
 
 ![New Applicant Risk](screenshots/new_applicant_risk.JPG)
 
+## Case Study
+
+[Read the full project case study (PDF)](documentation/Loan_Applicant_Default_Risk_Case_Study.pdf)
+
 ### Model comparison
 
 | Model | Validation ROC-AUC | Validation average precision |
