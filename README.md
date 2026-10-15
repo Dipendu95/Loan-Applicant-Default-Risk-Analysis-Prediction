@@ -124,13 +124,13 @@ Among applicants with known income ratios, 21.15% of new applicants have existin
 
 Historical application, approval, rejection and default KPIs, with default-rate comparisons by credit score, employment type and existing obligation ratio. City and application-date filters support exploration.
 
-![Historical Applications and Defaults dashboard](screenshots/historical_applications_defaults.jpg)
+![Historical Applications & Defaults](screenshots/historical_applications_defaults.JPG)
 
 ### Page 2 — New Applicant Risk
 
 New-applicant scoring totals, review-status distribution, priority reviews by city and an applicant table sorted by predicted risk. A city filter allows focused review.
 
-![New Applicant Risk dashboard](screenshots/new_applicant_risk.jpg)
+![New Applicant Risk](screenshots/new_applicant_risk.JPG)
 
 ### Model comparison
 
