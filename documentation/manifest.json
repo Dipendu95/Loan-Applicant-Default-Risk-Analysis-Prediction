@@ -1,0 +1,97 @@
+[
+  {
+    "path": "LICENSE.txt",
+    "bytes": 865,
+    "sha256": "b25fc1553848b45c61e46eb270f9fdbcec3306a6df4f554463b014f424cf1037"
+  },
+  {
+    "path": "README.md",
+    "bytes": 3648,
+    "sha256": "c48bf5ca8fe022b6eb7d5476317f565983ca96c9497a08777c66d6fed3de168c"
+  },
+  {
+    "path": "data/clean/application_decisions.csv",
+    "bytes": 1564139,
+    "sha256": "9dee6562d587ee3289675d18bd8a6ef9bf3c961edfb31a1a1668b8a44226db69"
+  },
+  {
+    "path": "data/clean/applications.csv",
+    "bytes": 4315861,
+    "sha256": "da22277f7d685a0650b465c8f6bf3b71e032e535b270f8956f3f07d1540d4ee6"
+  },
+  {
+    "path": "data/clean/bureau_summary.csv",
+    "bytes": 1901268,
+    "sha256": "72b334bc7c1a259afa5c95df4063237c99e49f17aeea75d7b5e4ebaced65c72f"
+  },
+  {
+    "path": "data/clean/dim_city.csv",
+    "bytes": 404,
+    "sha256": "7f7602c13d9f9634f1725e647de4de10ddd1f29709bc67768f2d8f6d9a6e634d"
+  },
+  {
+    "path": "data/clean/loan_originations.csv",
+    "bytes": 1207328,
+    "sha256": "818e3c34b42d8bde5648ed2a03dafe2296b06e43cbc036f530be53245dd1fff0"
+  },
+  {
+    "path": "data/clean/loan_outcomes.csv",
+    "bytes": 1001622,
+    "sha256": "7c3c38eedf085f762938c190edfc90f2a2ae7bdc7cb471143c2bce8888c98477"
+  },
+  {
+    "path": "data/clean/model_training.csv",
+    "bytes": 3766320,
+    "sha256": "279dfc2faaf025619217bc61c5cf157b39011199ce9cb480f8c301bb531cb35a"
+  },
+  {
+    "path": "data/clean/monthly_repayments.csv",
+    "bytes": 22226581,
+    "sha256": "4e39b394b5810afe9bbe1919fa96e999c0f10f64ea66c581c6fc86ef889e4e5a"
+  },
+  {
+    "path": "data/clean/new_applicants_to_score.csv",
+    "bytes": 1121792,
+    "sha256": "fadd377b849e4630c6d0bdf2999cc08489d970eb978b70edd9f7c2932f001d27"
+  },
+  {
+    "path": "data/clean/prior_credit_accounts.csv",
+    "bytes": 7822910,
+    "sha256": "2b65657054c14a5fca0f26a455f2f7b87330b5ce1cdde8a5e4d538b494a97b50"
+  },
+  {
+    "path": "data/raw_practice/applications_raw.csv",
+    "bytes": 4335732,
+    "sha256": "f32a0d6e85b6f689c34e63dd786f1c2c2d1668cf9bba8d408aa62fb4ffb7a599"
+  },
+  {
+    "path": "documentation/PROJECT_GUIDE.md",
+    "bytes": 8670,
+    "sha256": "5129b9268f77ecb7eb6ff37c02185773cc3a7c71cfacdaa71620a85ec4d36fcb"
+  },
+  {
+    "path": "documentation/data_dictionary.csv",
+    "bytes": 16916,
+    "sha256": "4137629f1a3d8622e8d49c8aa9c0b7fc8d3fa31ac86c2f10844fc840e07fc471"
+  },
+  {
+    "path": "documentation/validation_report.json",
+    "bytes": 2593,
+    "sha256": "2d4fdc6c664336d95133162864e4f9a1f5f084c08eaa6c8297200e0bea434c2b"
+  },
+  {
+    "path": "generator/build_dataset.py",
+    "bytes": 21028,
+    "sha256": "d4df8c6b2708d71f08634ffa6bb491a0f3326795ac7bb6d7e4b68048b96b7c42"
+  },
+  {
+    "path": "generator/validate_and_package.py",
+    "bytes": 4688,
+    "sha256": "3be1f6f88e162646ca3fc469bc98cc3c8060b6cf3c53102d7b73a9fecc306ad1"
+  },
+  {
+    "path": "sql/01_create_tables.sql",
+    "bytes": 4255,
+    "sha256": "f09e0c36183a0fc38a1b6ea3f361d3337f89f12bb8e85712bdaf9b8edcd40557"
+  }
+]

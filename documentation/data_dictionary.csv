@@ -1,0 +1,133 @@
+Table,Column,Suggested_SQL_Type,Availability,Description
+dim_city,City_ID,VARCHAR(120),Identifier or routing metadata,City ID.
+dim_city,City,VARCHAR(120),Available at application,City.
+dim_city,State,VARCHAR(120),Available at application,State.
+dim_city,City_Tier,VARCHAR(120),Available at application,City Tier.
+applications,Application_ID,VARCHAR(120),Identifier or routing metadata,"Application primary/foreign key. Identifier, not a model predictor."
+applications,Applicant_ID,VARCHAR(120),Identifier or routing metadata,Fictional person identifier. One unique applicant per application; not a model predictor.
+applications,Application_Date,DATE,Available at application,Application Date.
+applications,Cohort,VARCHAR(120),Identifier or routing metadata,"Historical (2023 to June 2025) or New_Scoring (August 2026). Routing metadata, not a predictor."
+applications,City_ID,VARCHAR(120),Identifier or routing metadata,City ID.
+applications,Age,BIGINT,Available at application,Age.
+applications,Employment_Type,VARCHAR(120),Available at application,Employment Type.
+applications,Employment_Sector,VARCHAR(120),Available at application,Employment Sector.
+applications,Employment_Tenure_Years,"DECIMAL(18,4)",Available at application,Employment Tenure Years.
+applications,Housing_Status,VARCHAR(120),Available at application,Housing Status.
+applications,Dependents,BIGINT,Available at application,Dependents.
+applications,Monthly_Income_INR,"DECIMAL(18,4)",Available at application,"Monthly income available at application; scenario assumption, not verified bank data."
+applications,Monthly_Living_Expenses_INR,"DECIMAL(18,4)",Available at application,"Estimated monthly household living expense, excluding existing debt payments."
+applications,Loan_Purpose,VARCHAR(120),Available at application,Loan Purpose.
+applications,Requested_Amount_INR,"DECIMAL(18,4)",Available at application,Requested Amount INR. Currency: INR.
+applications,Requested_Term_Months,BIGINT,Available at application,Requested Term Months.
+applications,Application_Channel,VARCHAR(120),Available at application,Application Channel.
+prior_credit_accounts,Credit_Account_ID,VARCHAR(120),Identifier or routing metadata,Credit Account ID.
+prior_credit_accounts,Application_ID,VARCHAR(120),Identifier or routing metadata,"Application primary/foreign key. Identifier, not a model predictor."
+prior_credit_accounts,Snapshot_Date,DATE,Available at application,Snapshot Date.
+prior_credit_accounts,Account_Type,VARCHAR(120),Available at application,Account Type.
+prior_credit_accounts,Opened_Date,DATE,Available at application,Opened Date.
+prior_credit_accounts,Account_Status,VARCHAR(120),Available at application,Account Status.
+prior_credit_accounts,Closed_Date,DATE,Available at application,Blank for active prior accounts; otherwise before application snapshot.
+prior_credit_accounts,Original_Amount_INR,"DECIMAL(18,4)",Available at application,Original Amount INR. Currency: INR.
+prior_credit_accounts,Credit_Limit_INR,"DECIMAL(18,4)",Available at application,Prior card credit limit; 0 for installment loans. Closed-card original limit can remain recorded.
+prior_credit_accounts,Outstanding_Balance_INR,"DECIMAL(18,4)",Available at application,Outstanding Balance INR. Currency: INR.
+prior_credit_accounts,Monthly_Obligation_INR,"DECIMAL(18,4)",Available at application,Simplified existing obligation: 5% card balance or original installment amount; 0 if closed.
+prior_credit_accounts,Late_Payments_Last12M,BIGINT,Available at application,"Count of late payments in available prior-account history, up to 12 months."
+prior_credit_accounts,Max_DPD_Last12M,BIGINT,Available at application,Prior-account maximum delinquency in available last 12 months. Not delinquency on the new loan.
+bureau_summary,Application_ID,VARCHAR(120),Identifier or routing metadata,"Application primary/foreign key. Identifier, not a model predictor."
+bureau_summary,Snapshot_Date,DATE,Available at application,Snapshot Date.
+bureau_summary,Prior_Account_Count,BIGINT,Available at application,Number of prior bureau accounts. Zero is a valid thin-file applicant.
+bureau_summary,Active_Account_Count,BIGINT,Available at application,Active Account Count.
+bureau_summary,Credit_History_Months,BIGINT,Available at application,Floor of longest account age in days / 30; 0 for no history.
+bureau_summary,Synthetic_Credit_Score,BIGINT,Available at application,"Simulated bureau-style score, 300-900. NOT a CIBIL score. Missing for applicants with no prior accounts."
+bureau_summary,Total_Outstanding_INR,"DECIMAL(18,4)",Available at application,Total Outstanding INR. Currency: INR.
+bureau_summary,Existing_Monthly_Obligation_INR,"DECIMAL(18,4)",Available at application,Sum of current monthly obligations on prior accounts; includes simplified card minimums.
+bureau_summary,Card_Utilisation_Ratio,"DECIMAL(18,4)",Available at application,"Active card balances / active card limits; 0-1. Missing if no active card limit, not zero."
+bureau_summary,Total_Late_Payments_Last12M,BIGINT,Available at application,Sum of account late-payment counts; may exceed 12 across multiple accounts.
+bureau_summary,Max_Prior_DPD_Last12M,BIGINT,Available at application,Maximum prior-account days past due over the available last 12 months; before this application.
+bureau_summary,Enquiries_Last6M,BIGINT,Available at application,Simulated bureau enquiry count available before application.
+application_decisions,Application_ID,VARCHAR(120),Identifier or routing metadata,"Application primary/foreign key. Identifier, not a model predictor."
+application_decisions,Decision_Date,DATE,Post-application: exclude from model inputs,Decision Date.
+application_decisions,Decision,VARCHAR(120),Post-application: exclude from model inputs,Decision.
+application_decisions,Decision_Reason,VARCHAR(120),Post-application: exclude from model inputs,Simplified synthetic policy reason; post-application decision output. Never use as applicant predictor.
+loan_originations,Loan_ID,VARCHAR(120),Identifier or routing metadata,Loan ID.
+loan_originations,Application_ID,VARCHAR(120),Identifier or routing metadata,"Application primary/foreign key. Identifier, not a model predictor."
+loan_originations,Disbursement_Date,DATE,Post-application: exclude from model inputs,Disbursement Date.
+loan_originations,Disbursed_Amount_INR,"DECIMAL(18,4)",Post-application: exclude from model inputs,"Actual issued amount; can be below request. Post-decision, not applicant-time feature."
+loan_originations,Term_Months,BIGINT,Post-application: exclude from model inputs,Term Months.
+loan_originations,Annual_Interest_Rate,"DECIMAL(18,4)",Post-application: exclude from model inputs,"Annual nominal loan interest rate expressed as a fraction, e.g. 0.15 = 15%. Post-decision; exclude from applicant model."
+loan_originations,Scheduled_EMI_INR,"DECIMAL(18,4)",Post-application: exclude from model inputs,"Reducing-balance EMI = principal*r/(1-(1+r)^(-term)), rounded to paise; r=annual nominal rate/12."
+monthly_repayments,Loan_ID,VARCHAR(120),Identifier or routing metadata,Loan ID.
+monthly_repayments,Application_ID,VARCHAR(120),Identifier or routing metadata,"Application primary/foreign key. Identifier, not a model predictor."
+monthly_repayments,Month_Number,BIGINT,Post-application: exclude from model inputs,Month Number.
+monthly_repayments,Due_Date,DATE,Post-application: exclude from model inputs,Due Date.
+monthly_repayments,Snapshot_Date,DATE,Post-application: exclude from model inputs,Snapshot Date.
+monthly_repayments,Scheduled_Amount_INR,"DECIMAL(18,4)",Post-application: exclude from model inputs,Scheduled Amount INR. Currency: INR.
+monthly_repayments,Paid_During_Month_INR,"DECIMAL(18,4)",Post-application: exclude from model inputs,"Cash toward installments received by this snapshot, capped at billed outstanding. May exceed one EMI during cure."
+monthly_repayments,Cumulative_Scheduled_INR,"DECIMAL(18,4)",Post-application: exclude from model inputs,Cumulative Scheduled INR. Currency: INR.
+monthly_repayments,Cumulative_Paid_INR,"DECIMAL(18,4)",Post-application: exclude from model inputs,Cumulative Paid INR. Currency: INR.
+monthly_repayments,Arrears_INR,"DECIMAL(18,4)",Post-application: exclude from model inputs,Cumulative scheduled installments minus cumulative cash paid. Includes interest; NOT principal outstanding or credit loss.
+monthly_repayments,Days_Past_Due,BIGINT,Post-application: exclude from model inputs,"Calendar days between month-end snapshot and oldest not-fully-paid installment due date, using FIFO cash allocation; zero if fully current."
+loan_outcomes,Application_ID,VARCHAR(120),Identifier or routing metadata,"Application primary/foreign key. Identifier, not a model predictor."
+loan_outcomes,Loan_ID,VARCHAR(120),Identifier or routing metadata,Loan ID.
+loan_outcomes,Observed_Months,BIGINT,Post-application: exclude from model inputs,"12 for issued historical loans, 0 for rejected or pending applications."
+loan_outcomes,Observation_End_Date,DATE,Post-application: exclude from model inputs,Observation End Date.
+loan_outcomes,Default_90DPD_12M,BIGINT,Prediction target; never predictor,"1 if any of first 12 month-end observations has DPD >=90; 0 if all 12 observed without threshold; blank when no loan issued. Target, NEVER an input."
+loan_outcomes,First_Default_Snapshot,DATE,Post-application: exclude from model inputs,"First observed month-end DPD >=90, not exact daily crossing date; remains recorded even after cure."
+loan_outcomes,Max_DPD_12M,BIGINT,Post-application: exclude from model inputs,Max DPD 12M.
+loan_outcomes,Months_With_Arrears_12M,BIGINT,Post-application: exclude from model inputs,Number of 12 performance snapshots with Days_Past_Due >0. Post-outcome field.
+model_training,Application_ID,VARCHAR(120),Identifier or routing metadata,"Application primary/foreign key. Identifier, not a model predictor."
+model_training,Applicant_ID,VARCHAR(120),Identifier or routing metadata,Fictional person identifier. One unique applicant per application; not a model predictor.
+model_training,Application_Date,DATE,Available at application,Application Date.
+model_training,Cohort,VARCHAR(120),Identifier or routing metadata,"Historical (2023 to June 2025) or New_Scoring (August 2026). Routing metadata, not a predictor."
+model_training,City_ID,VARCHAR(120),Identifier or routing metadata,City ID.
+model_training,Age,BIGINT,Available at application,Age.
+model_training,Employment_Type,VARCHAR(120),Available at application,Employment Type.
+model_training,Employment_Sector,VARCHAR(120),Available at application,Employment Sector.
+model_training,Employment_Tenure_Years,"DECIMAL(18,4)",Available at application,Employment Tenure Years.
+model_training,Housing_Status,VARCHAR(120),Available at application,Housing Status.
+model_training,Dependents,BIGINT,Available at application,Dependents.
+model_training,Monthly_Income_INR,"DECIMAL(18,4)",Available at application,"Monthly income available at application; scenario assumption, not verified bank data."
+model_training,Monthly_Living_Expenses_INR,"DECIMAL(18,4)",Available at application,"Estimated monthly household living expense, excluding existing debt payments."
+model_training,Loan_Purpose,VARCHAR(120),Available at application,Loan Purpose.
+model_training,Requested_Amount_INR,"DECIMAL(18,4)",Available at application,Requested Amount INR. Currency: INR.
+model_training,Requested_Term_Months,BIGINT,Available at application,Requested Term Months.
+model_training,Application_Channel,VARCHAR(120),Available at application,Application Channel.
+model_training,Prior_Account_Count,BIGINT,Available at application,Number of prior bureau accounts. Zero is a valid thin-file applicant.
+model_training,Active_Account_Count,BIGINT,Available at application,Active Account Count.
+model_training,Credit_History_Months,BIGINT,Available at application,Floor of longest account age in days / 30; 0 for no history.
+model_training,Synthetic_Credit_Score,BIGINT,Available at application,"Simulated bureau-style score, 300-900. NOT a CIBIL score. Missing for applicants with no prior accounts."
+model_training,Total_Outstanding_INR,"DECIMAL(18,4)",Available at application,Total Outstanding INR. Currency: INR.
+model_training,Existing_Monthly_Obligation_INR,"DECIMAL(18,4)",Available at application,Sum of current monthly obligations on prior accounts; includes simplified card minimums.
+model_training,Card_Utilisation_Ratio,"DECIMAL(18,4)",Available at application,"Active card balances / active card limits; 0-1. Missing if no active card limit, not zero."
+model_training,Total_Late_Payments_Last12M,BIGINT,Available at application,Sum of account late-payment counts; may exceed 12 across multiple accounts.
+model_training,Max_Prior_DPD_Last12M,BIGINT,Available at application,Maximum prior-account days past due over the available last 12 months; before this application.
+model_training,Enquiries_Last6M,BIGINT,Available at application,Simulated bureau enquiry count available before application.
+model_training,Default_90DPD_12M,BIGINT,Prediction target; never predictor,"1 if any of first 12 month-end observations has DPD >=90; 0 if all 12 observed without threshold; blank when no loan issued. Target, NEVER an input."
+model_training,Suggested_Split,VARCHAR(120),Identifier or routing metadata,"Chronological modelling partition: Train before July 2024, Validation July-Dec 2024, Test Jan-June 2025. Not a predictor."
+new_applicants_to_score,Application_ID,VARCHAR(120),Identifier or routing metadata,"Application primary/foreign key. Identifier, not a model predictor."
+new_applicants_to_score,Applicant_ID,VARCHAR(120),Identifier or routing metadata,Fictional person identifier. One unique applicant per application; not a model predictor.
+new_applicants_to_score,Application_Date,DATE,Available at application,Application Date.
+new_applicants_to_score,Cohort,VARCHAR(120),Identifier or routing metadata,"Historical (2023 to June 2025) or New_Scoring (August 2026). Routing metadata, not a predictor."
+new_applicants_to_score,City_ID,VARCHAR(120),Identifier or routing metadata,City ID.
+new_applicants_to_score,Age,BIGINT,Available at application,Age.
+new_applicants_to_score,Employment_Type,VARCHAR(120),Available at application,Employment Type.
+new_applicants_to_score,Employment_Sector,VARCHAR(120),Available at application,Employment Sector.
+new_applicants_to_score,Employment_Tenure_Years,"DECIMAL(18,4)",Available at application,Employment Tenure Years.
+new_applicants_to_score,Housing_Status,VARCHAR(120),Available at application,Housing Status.
+new_applicants_to_score,Dependents,BIGINT,Available at application,Dependents.
+new_applicants_to_score,Monthly_Income_INR,"DECIMAL(18,4)",Available at application,"Monthly income available at application; scenario assumption, not verified bank data."
+new_applicants_to_score,Monthly_Living_Expenses_INR,"DECIMAL(18,4)",Available at application,"Estimated monthly household living expense, excluding existing debt payments."
+new_applicants_to_score,Loan_Purpose,VARCHAR(120),Available at application,Loan Purpose.
+new_applicants_to_score,Requested_Amount_INR,"DECIMAL(18,4)",Available at application,Requested Amount INR. Currency: INR.
+new_applicants_to_score,Requested_Term_Months,BIGINT,Available at application,Requested Term Months.
+new_applicants_to_score,Application_Channel,VARCHAR(120),Available at application,Application Channel.
+new_applicants_to_score,Prior_Account_Count,BIGINT,Available at application,Number of prior bureau accounts. Zero is a valid thin-file applicant.
+new_applicants_to_score,Active_Account_Count,BIGINT,Available at application,Active Account Count.
+new_applicants_to_score,Credit_History_Months,BIGINT,Available at application,Floor of longest account age in days / 30; 0 for no history.
+new_applicants_to_score,Synthetic_Credit_Score,BIGINT,Available at application,"Simulated bureau-style score, 300-900. NOT a CIBIL score. Missing for applicants with no prior accounts."
+new_applicants_to_score,Total_Outstanding_INR,"DECIMAL(18,4)",Available at application,Total Outstanding INR. Currency: INR.
+new_applicants_to_score,Existing_Monthly_Obligation_INR,"DECIMAL(18,4)",Available at application,Sum of current monthly obligations on prior accounts; includes simplified card minimums.
+new_applicants_to_score,Card_Utilisation_Ratio,"DECIMAL(18,4)",Available at application,"Active card balances / active card limits; 0-1. Missing if no active card limit, not zero."
+new_applicants_to_score,Total_Late_Payments_Last12M,BIGINT,Available at application,Sum of account late-payment counts; may exceed 12 across multiple accounts.
+new_applicants_to_score,Max_Prior_DPD_Last12M,BIGINT,Available at application,Maximum prior-account days past due over the available last 12 months; before this application.
+new_applicants_to_score,Enquiries_Last6M,BIGINT,Available at application,Simulated bureau enquiry count available before application.
