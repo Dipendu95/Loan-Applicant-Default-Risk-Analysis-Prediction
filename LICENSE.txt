@@ -1,0 +1,17 @@
+Synthetic dataset and original accompanying materials
+
+Permission is granted, without charge, to use, copy, modify, distribute, publish,
+sublicense and sell copies of the generated synthetic data and original code and
+documentation in this package, including inclusion in public repositories,
+portfolio reports and Power BI files.
+
+This grant does not cover third-party software, trademarks or platform services.
+NumPy and pandas retain their own licences.
+
+THE MATERIALS ARE PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND. All borrower and
+loan records are synthetic. No real-world predictive accuracy, regulatory
+compliance or fitness for lending decisions is represented.
+
+Please retain the synthetic-data disclosure when presenting results. Do not
+describe these records as real customer data or claim endorsement by a bank,
+credit bureau or financial regulator.
