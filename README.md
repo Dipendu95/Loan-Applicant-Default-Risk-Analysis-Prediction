@@ -109,8 +109,8 @@ These findings describe the synthetic approved-loan population with observed out
 | --- | --- |
 | Historical default rate | **2,544 of 19,393 loans — 13.12%** |
 | Lower credit scores were associated with higher default rates | **36.20%** below 600 versus **5.12%** at 800+ |
-| Higher existing obligations were associated with higher default rates | **39.83%** above a 60% obligation ratio versus **8.95%** above 0–20% |
-| Default rates differed by employment type | Contract **15.34%**, self-employed **14.08%**, salaried **12.35%** |
+| Higher existing obligations were associated with higher default rates | **39.89%** above a 60% obligation ratio versus **8.95%** above 0–20% |
+| Default rates differed by employment type | Contract **15.24%**, self-employed **14.08%**, salaried **12.35%** |
 | Previous credit delays were associated with higher default rates | **15.44%** for prior accounts with delays versus **6.40%** for prior accounts without delays |
 | Affordability was the largest simulated rejection reason | **57.33%** of historical rejections |
 
