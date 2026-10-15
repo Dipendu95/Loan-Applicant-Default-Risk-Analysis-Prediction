@@ -32,9 +32,9 @@ The dataset was generated specifically for this project and represents a fiction
 
 | Applicant group | Applications | Period / status |
 | --- | ---: | --- |
-| Historical approved | 19,393 | January 2023–June 2025 (30-month application period); default assessed over the first 12 monthly repayment snapshots |
-| Historical rejected | 4,607 | January 2023–June 2025; no issued-loan outcome |
-| New applicants | 6,000 | August 2026; pending decisions |
+| Historical approved | 19,393 | Jan 2023–Jun 2025 (30-month application period); 12-month default observation window |
+| Historical rejected | 4,607 | Jan 2023–Jun 2025; no observed loan outcome |
+| New applicants | 6,000 | Aug 2026; pending decisions |
 | **Total** | **30,000** | |
 
 Eight core tables cover applications, cities, bureau summaries, prior credit accounts, decisions, originations, monthly repayments and outcomes. They include **70,290 prior credit accounts** and **232,716 monthly repayment observations**.
