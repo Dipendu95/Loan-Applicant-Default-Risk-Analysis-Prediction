@@ -201,4 +201,7 @@ Important limits:
 **Dipendu Roy**  
 Aspiring Data Analyst | SQL · Python · Power BI · Excel
 
+- Email: [roy.dipendu.1995@gmail.com](mailto:roy.dipendu.1995@gmail.com)
+- LinkedIn: [Dipendu Roy](https://www.linkedin.com/in/dipenduroy/)
+
 For project questions and feedback, please open an issue in this GitHub repository.
